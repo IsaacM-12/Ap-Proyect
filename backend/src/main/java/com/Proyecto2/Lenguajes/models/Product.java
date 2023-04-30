@@ -12,16 +12,26 @@ public class Product {
     private String description;
     private String url;
     private String name;
+    private String price;
 
 
     public Product() {
     }
 
-    public Product(String id, String description, String url, String name) {
+    public Product(String id, String description, String url, String name, String price) {
         this.id = id;
         this.description = description;
         this.url = url;
         this.name = name;
+        this.price = price;
+    }
+
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
     }
 
     public String getId() {

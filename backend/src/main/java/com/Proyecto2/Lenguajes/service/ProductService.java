@@ -37,8 +37,9 @@ public class ProductService {
             String name = registro[1].toString();
             String description = registro[2].toString();
             String url = registro[3].toString();
+            String price = registro[4].toString();
 
-            productList.add(new Product(id, description, url, name));
+            productList.add(new Product(id, description, url, name, price));
         }
 
         return productList;
