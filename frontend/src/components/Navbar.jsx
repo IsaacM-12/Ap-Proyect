@@ -4,11 +4,12 @@ import "../App.css";
 const Navbar = () => {
   return (
     <div className="menu">
+      <img src="/Images/logo.png"/>
       <Link to="/">
-        <h2>Inicio</h2>
+        <h3>Inicio</h3>
       </Link>
       <Link to="/product/upload">
-        <h2>Subir Producto</h2>
+        <h3>Subir Producto</h3>
       </Link>
 
     </div>

@@ -32,12 +32,16 @@ const Home = () => {
     if (response.data.length > 0) {
       let productlist = response.data.map((item) => {
         return (
-          <img
-            key={item.id}
-            src={item.url}
-            id={item.id}
-            onClick={() => navigate("/product" + "/" + item.id)}
-          />
+          <div className="singleImage">
+            <img
+              key={item.id}
+              src={item.url}
+              id={item.id}
+              onClick={() => navigate("/product" + "/" + item.id)}
+            />
+            <h3>₡ {item.price}</h3>
+            <h3>{item.name}</h3>
+          </div>
         );
       });
       setProduct(productlist);
@@ -61,12 +65,16 @@ const Home = () => {
     if (response.data.length > 0) {
       let imagelist = response.data.map((item) => {
         return (
-          <img
-            key={item.id}
-            src={item.url}
-            id={item.id}
-            onClick={() => navigate("/product" + "/" + item.id)}
-          />
+          <div className="singleImage">
+            <img
+              key={item.id}
+              src={item.url}
+              id={item.id}
+              onClick={() => navigate("/product" + "/" + item.id)}
+            />
+            <h3>₡ {item.price}</h3>
+            <h3>{item.name}</h3>
+          </div>
         );
       });
       setProduct(imagelist);
@@ -83,10 +91,6 @@ const Home = () => {
       <button onClick={selectProductToBDFilter}>Buscar</button>
 
       <div className="img-gallery">{Product}</div>
-
-      <div>
-        <button onClick={selectProductToBD}>Cargar Imagenes</button>
-      </div>
 
       <NotificationContainer />
     </div>

@@ -45,12 +45,15 @@ const Product = () => {
         <br></br>
         <br></br>
         <a>Descripción: {response.data.description}</a>
+        <br></br>
+        <br></br>
+        <a>Precio: {response.data.price}</a>
       </div>
     );
   };
 
   return (
-    <div className="singleImage">
+    <div className="space">
       <div className="ful-img">{Image}</div>
 
       <div className="information">{Information}</div>

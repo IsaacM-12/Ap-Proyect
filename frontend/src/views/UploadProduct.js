@@ -14,6 +14,7 @@ const UploaProduct = () => {
 
   const [description, setDescription] = useState("");
   const [nameimage, setNameImage] = useState("");
+  const [price, setPrice] = useState(0);
 
   // para cambiar la direccion del browser a la inicial
   const navigate = useNavigate();
@@ -34,13 +35,15 @@ const UploaProduct = () => {
       description: description,
       url: url,
       name: nameimage,
+      price: price,
     };
 
     if (
       newProduct.id === "" ||
       newProduct.description === "" ||
       newProduct.url === "" ||
-      newProduct.name === ""
+      newProduct.name === "" ||
+      newProduct.price === 0
     ) {
       NotificationManager.warning(
         "Warning message",
@@ -116,6 +119,12 @@ const UploaProduct = () => {
           <label>
             Nombre:
             <input type="text" onChange={(e) => setNameImage(e.target.value)} />
+          </label>
+          <br></br>
+          <br></br>
+          <label>
+            Precio:
+            <input type="text" onChange={(e) => setPrice(e.target.value)} />
           </label>
           <br></br>
           <br></br>

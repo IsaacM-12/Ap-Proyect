@@ -7,8 +7,8 @@ const PiePagina = () => {
         <Link to="/">
           <a>Inicio</a>
         </Link>
-        <a>Telefono: </a>
-        <a>Correo: </a>
+        <a>Telefono: +506 2101-4544</a>
+        <a>Correo: ventas@bluehill-solutions.com</a>
   
       </div>
     );
