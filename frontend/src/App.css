@@ -54,11 +54,23 @@ select:focus {
   margin-left: 1em;
 }
 
+.piePagina {
+  background-color: #1e1c1c;
+  display: flex;
+  height: 20vh;
+  padding: 6vh
+
+}
+.piePagina a {
+  color: rgb(244, 11, 11);
+  margin-right: 1em;
+  margin-left: 1em;
+}
+
 .uploadCSS {
   border-top: 100px solid transparent;
-  height: 100%;
+  height: 90vh;
   width: 100%;
-  position: fixed;
   background: linear-gradient(to left, #ec0303, #278af4);
 }
 
@@ -66,6 +78,7 @@ select:focus {
   border-top: 2vh solid transparent;
   border-bottom: 5vh solid transparent;
 }
+
 .singleImage {
   border-top: 2vh solid transparent;
   border-bottom: 5vh solid transparent;
@@ -138,13 +151,16 @@ input {
 .img-gallery {
   margin-bottom: 55px;
   margin-top: 55px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .img-gallery img {
   max-width: 90vh;
   max-height: 40vh;
-  border: 5px solid transparent;
   cursor: pointer;
   transition: 1s;
+  margin: 10px auto;
 }
 .img-gallery img:hover {
   transform: scale(1.1);
