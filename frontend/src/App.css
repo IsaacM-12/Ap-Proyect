@@ -1,0 +1,158 @@
+body {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  text-align: center;
+}
+
+h2 {
+  margin-right: 1em;
+  margin-left: 1em;
+}
+
+table {
+  margin: auto;
+  border-collapse: collapse;
+  table-layout: fixed;
+  width: 90%;
+}
+
+td {
+  border: 1px solid red;
+  text-align: center;
+}
+th {
+  border: 1px solid red;
+  text-align: center;
+}
+
+select{
+  background-color: transparent;
+  color: white;
+  border-color: red;
+  margin: 5px;
+  padding: 5px;
+}
+select:focus {
+  color: #0b0b0b;
+}
+
+.principal {
+  background: linear-gradient(to left, #2e2d2d, #0b0b0b);
+  color: white;
+  min-height: 100vh;
+}
+
+.menu {
+  background-color: #1e1c1c;
+  text-align: left;
+  display: flex;
+}
+.menu a {
+  color: rgb(244, 11, 11);
+  margin-right: 1em;
+  margin-left: 1em;
+}
+
+.uploadCSS {
+  border-top: 100px solid transparent;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  background: linear-gradient(to left, #ec0303, #278af4);
+}
+
+.galery {
+  border-top: 2vh solid transparent;
+  border-bottom: 5vh solid transparent;
+}
+.singleImage {
+  border-top: 2vh solid transparent;
+  border-bottom: 5vh solid transparent;
+}
+
+button {
+  background-color: transparent;
+  color: white;
+  padding: 10px 20px;
+  border: 1px solid #ffffff;
+  border-radius: 2px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  outline: none;
+  transition: 1s ease-in-out;
+}
+
+button:hover {
+  transition: 0.5s ease-in-out;
+  background: #53a5f8;
+}
+button span {
+  color: white;
+  font-size: 18px;
+  font-weight: 100;
+}
+
+input {
+  background-color: transparent;
+  color: white;
+  border: 1px solid red;
+  padding: 10px 10px;
+  border-radius: 50px;
+}
+
+.space{
+  margin: 20px;
+}
+
+.ful-img {
+  margin: auto;
+}
+.ful-img img {
+  max-height: 50vh;
+}
+.ful-img img:hover {
+  transform: none;
+  cursor: auto;
+}
+
+.buttonDelete {
+  background-color: rgb(245, 11, 11);
+  color: black;
+  padding: 10px 20px;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  outline: none;
+  transition: 1s ease-in-out;
+}
+
+.buttonDelete:hover {
+  transition: 1s ease-in-out;
+  background: red;
+}
+
+.img-gallery {
+  margin-bottom: 55px;
+  margin-top: 55px;
+}
+.img-gallery img {
+  max-width: 90vh;
+  max-height: 40vh;
+  border: 5px solid transparent;
+  cursor: pointer;
+  transition: 1s;
+}
+.img-gallery img:hover {
+  transform: scale(1.1);
+}
+
+
+@media screen and (max-width: 700px) {
+  .principal {
+    max-width: 100vh;
+  }
+}
