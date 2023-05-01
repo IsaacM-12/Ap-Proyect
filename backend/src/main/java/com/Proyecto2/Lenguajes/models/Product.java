@@ -1,24 +1,35 @@
 package com.Proyecto2.Lenguajes.models;
 
-
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import org.hibernate.annotations.GenericGenerator;
+import javax.persistence.*;
 
 
 @Entity
 public class Product {
+    
     @Id
+    @GeneratedValue(generator = "uuid2")
+    @GenericGenerator(name = "uuid2", strategy = "org.hibernate.id.UUIDGenerator")
+    @Column(name = "ID", length = 36)
     private String id;
+
+    @Column(name = "description")
     private String description;
+
+    @Column(name = "url")
     private String url;
+
+    @Column(name = "name")
     private String name;
-    private String price;
+
+    @Column(name = "price", columnDefinition = "DOUBLE")
+    private double price;
 
 
     public Product() {
     }
 
-    public Product(String id, String description, String url, String name, String price) {
+    public Product(String id, String description, String url, String name, double price) {
         this.id = id;
         this.description = description;
         this.url = url;
@@ -26,11 +37,11 @@ public class Product {
         this.price = price;
     }
 
-    public String getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 

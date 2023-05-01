@@ -41,16 +41,9 @@ public class ProductController {
     // crear
     @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping(path = "/product")
-    public void createPrduct(@RequestBody Product newProduct){
-        String id = newProduct.getId();
-        Optional<Product> product = productRepository.findById(id);
-
-        if(product.isEmpty()){
-            productRepository.save(newProduct);
-        }
-        else {
-            throw new RuntimeException("ID ocupado: " + id);
-        }
+    public void createProduct(@RequestBody Product newProduct) {
+        newProduct.setId(null); // Esto asegura que Hibernate generará un nuevo ID único para el producto
+        productRepository.save(newProduct);
     }
 
     // borra por Id
