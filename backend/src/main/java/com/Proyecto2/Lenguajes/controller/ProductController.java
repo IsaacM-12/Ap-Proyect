@@ -7,7 +7,6 @@ import com.Proyecto2.Lenguajes.repository.ProductRepository;
 import com.Proyecto2.Lenguajes.repository.InventoryRepository;
 import com.Proyecto2.Lenguajes.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
