@@ -1,6 +1,6 @@
 import Product from "./views/Product";
 import Home from "./views/Home";
-import UploaProduct from "./views/UploadProduct";
+import UploadProduct from "./views/UploadProduct";
 
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
@@ -23,7 +23,7 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="Product/:id" element={<Product />} />
-          <Route path="Product/upload" element={<UploaProduct />} />
+          <Route path="Product/upload" element={<UploadProduct />} />
 
           <Route path="*" element={<NotFound />} />
         </Route>

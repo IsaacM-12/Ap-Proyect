@@ -10,6 +10,7 @@ import javax.persistence.StoredProcedureQuery;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.Proyecto2.Lenguajes.models.Inventory;
 
 @Service
 public class ProductService {
@@ -38,8 +39,11 @@ public class ProductService {
             String description = registro[2].toString();
             String url = registro[3].toString();
             double price = Double.parseDouble(registro[4].toString());
+            int quantity = Integer.parseInt(registro[5].toString());
 
-            productList.add(new Product(id, description, url, name, price));
+            Inventory inventory = new Inventory(id, quantity);
+            Product product = new Product(id, description, url, name, price);
+            productList.add(product);
         }
 
         return productList;

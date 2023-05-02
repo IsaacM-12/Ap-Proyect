@@ -1,6 +1,9 @@
 package com.Proyecto2.Lenguajes.models;
 
 import org.hibernate.annotations.GenericGenerator;
+
+import com.Proyecto2.Lenguajes.dto.ProductRequest;
+
 import javax.persistence.*;
 
 
@@ -27,6 +30,13 @@ public class Product {
 
 
     public Product() {
+    }
+
+    public Product(ProductRequest req) {
+        this.description = req.getDescription();
+        this.url = req.getUrl();
+        this.name = req.getName();
+        this.price = req.getPrice();
     }
 
     public Product(String id, String description, String url, String name, double price) {
@@ -76,4 +86,5 @@ public class Product {
     public void setName(String name) {
         this.name = name;
     }
+
 }

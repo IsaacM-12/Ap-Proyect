@@ -9,12 +9,13 @@ import {
   NotificationContainer,
 } from "react-notifications";
 
-const UploaProduct = () => {
+const UploadProduct = () => {
   const [file, setFile] = useState(null);
 
   const [description, setDescription] = useState("");
   const [nameimage, setNameImage] = useState("");
   const [price, setPrice] = useState(0);
+  const [quantity, setQuantity] = useState(0);
 
   // para cambiar la direccion del browser a la inicial
   const navigate = useNavigate();
@@ -31,15 +32,14 @@ const UploaProduct = () => {
   // -------------------------------------------------------------
   function createProductBD(id, url) {
     var newProduct = {
-      id: id,
       description: description,
       url: url,
       name: nameimage,
       price: price,
+      quantity: quantity,
     };
 
     if (
-      newProduct.id === "" ||
       newProduct.description === "" ||
       newProduct.url === "" ||
       newProduct.name === "" ||
@@ -128,6 +128,12 @@ const UploaProduct = () => {
           </label>
           <br></br>
           <br></br>
+          <label>
+            Cantidad:
+            <input type="text" onChange={(e) => setQuantity(e.target.value)} />
+          </label>
+          <br></br>
+          <br></br>
           <button>Subir Producto</button>
         </form>
       </div>
@@ -136,4 +142,4 @@ const UploaProduct = () => {
   );
 };
 
-export default UploaProduct;
+export default UploadProduct;

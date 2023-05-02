@@ -32,9 +32,8 @@ const Home = () => {
     if (response.data.length > 0) {
       let productlist = response.data.map((item) => {
         return (
-          <div className="singleImage">
+          <div key={item.id} className="singleImage">
             <img
-              key={item.id}
               src={item.url}
               id={item.id}
               onClick={() => navigate("/product" + "/" + item.id)}
@@ -67,7 +66,6 @@ const Home = () => {
         return (
           <div className="singleImage">
             <img
-              key={item.id}
               src={item.url}
               id={item.id}
               onClick={() => navigate("/product" + "/" + item.id)}
@@ -79,7 +77,7 @@ const Home = () => {
       });
       setProduct(imagelist);
     } else {
-      setProduct(<h2>No hay ninguna Producto</h2>);
+      setProduct(<h2>No hay ningun Producto</h2>);
     }
   };
 
