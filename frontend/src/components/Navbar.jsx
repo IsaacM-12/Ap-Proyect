@@ -14,7 +14,9 @@ const Navbar = () => {
       <Link to="/product/upload">
         <h3>Subir Producto</h3>
       </Link>
+      <Link to="/cart" >
       <img src="/Images/cart.png" alt="cart-icon" className="cart-icon" />
+      </Link>
     </div>
   );
 };

@@ -55,7 +55,7 @@ const Product = () => {
 
   return (
     <div>
-          <div className="menu">
+        <div className="menu">
       <img src="/Images/logo.png" alt="logo" className="logo" />
       <Link to="/">
         <div className="home-container">
@@ -63,11 +63,11 @@ const Product = () => {
           <h3 className="home-text">Inicio</h3>
         </div>
       </Link>
-      <Link to="/product/upload">
-        <h3>Subir Producto</h3>
+      <Link to="/register">
+        <h3>Registrarme</h3>
       </Link>
-      <Link to="/cart" >
-      <img src="/Images/cart.png" alt="cart-icon" className="cart-icon" />
+      <Link to="/login">
+        <h3>Iniciar Sesión</h3>
       </Link>
     </div>
     <div className="space">

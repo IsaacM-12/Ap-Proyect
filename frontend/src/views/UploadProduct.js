@@ -4,6 +4,8 @@ import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
 import { useNavigate } from "react-router-dom";
 import "react-notifications/lib/notifications.css";
+import { Link } from "react-router-dom";
+
 import {
   NotificationManager,
   NotificationContainer,
@@ -20,7 +22,7 @@ const UploadProduct = () => {
   // para cambiar la direccion del browser a la inicial
   const navigate = useNavigate();
   function redirectGalery() {
-    navigate("/");
+    navigate("/admin/home");
   }
 
   function refresque() {
@@ -92,6 +94,22 @@ const UploadProduct = () => {
   };
 
   return (
+    <div>
+          <div className="menu">
+      <img src="/Images/logo.png" alt="logo" className="logo" />
+      <Link to="/home">
+        <div className="home-container">
+          <img src="/Images/home.png" alt="Inicio" className="home-icon" />
+          <h3 className="home-text">Inicio</h3>
+        </div>
+      </Link>
+      <Link to="/product/upload">
+        <h3>Subir Producto</h3>
+      </Link>
+      <Link to="/">
+        <h3>Cerrar Sesión</h3>
+      </Link>
+    </div>
     <div className="uploadCSS">
       <h1> Subir Producto </h1>
 
@@ -138,6 +156,7 @@ const UploadProduct = () => {
         </form>
       </div>
       <NotificationContainer />
+    </div>
     </div>
   );
 };

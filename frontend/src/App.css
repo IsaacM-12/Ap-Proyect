@@ -21,6 +21,7 @@ h3 {
   display: flex;
 }
 
+
 .cart-icon {
   max-height: 50px;
   margin: 5px;  
@@ -187,8 +188,31 @@ input {
 .singleImage {
   background-color: #ffffff;
   width: 60vh;
-  height: 40vh;
+  height: 45vh;
   margin: 2vh;
+
+  position: relative;
+  overflow: hidden;
+}
+
+
+.singleImage h3.price {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.singleImage h3.name {
+  position: absolute;
+  bottom: 30px; /* margen para separar del precio */
+  left: 0;
+  margin-top: 10px; /* margen para evitar el traslape */
+}
+
+.singleImage button {
+  position: absolute;
+  bottom: 0;
+  right: 1.5rem;
 }
 
 @media screen and (max-width: 700px) {

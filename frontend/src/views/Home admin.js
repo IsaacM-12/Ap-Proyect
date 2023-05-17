@@ -7,13 +7,6 @@ import { Link } from "react-router-dom";
 
 const Home = () => {
   const [Product, setProduct] = useState([]);
-  const [action, setAction] =  useState("Add to cart");
-
-  function handleActionClick() {
-    console.log(action);
-    setAction("Added to cart");
-    console.log(action);
-  }
 
   // para cambiar la direccion del browser
   const navigate = useNavigate();
@@ -46,9 +39,9 @@ const Home = () => {
               id={item.id}
               onClick={() => navigate("/product" + "/" + item.id)}
             />
-            <h3 className="price">₡ {item.price}</h3>
-            <h3 className="name">{item.name}</h3>
-            <button className="" onClick={handleActionClick}>{action}</button>
+            <h3 class="price">₡ {item.price}</h3>
+            <h3 class="name">{item.name}</h3>
+            <button class="" onClick={() => navigate("/product" + "/" + item.id)}>Delete</button>
           </div>
         );
       });
@@ -92,22 +85,21 @@ const Home = () => {
 
   return (
     <div>
-<div className="menu">
-  <img src="/Images/logo.png" alt="logo" className="logo" />
-  <Link to="/home">
-    <div className="home-container">
-      <img src="/Images/home.png" alt="Inicio" className="home-icon" />
-      <h3 className="home-text">Inicio</h3>
+          <div className="menu">
+      <img src="/Images/logo.png" alt="logo" className="logo" />
+      <Link to="/admin/home">
+        <div className="home-container">
+          <img src="/Images/home.png" alt="Inicio" className="home-icon" />
+          <h3 className="home-text">Inicio</h3>
+        </div>
+      </Link>
+      <Link to="/product/upload">
+        <h3>Subir Producto</h3>
+      </Link>
+      <Link to="/">
+        <h3>Cerrar Sesión</h3>
+      </Link>
     </div>
-  </Link>
-  <Link to="/" >
-    <h3>Cerrar Sesión</h3>
-  </Link>
-  <Link to="/cart" style={{ marginLeft: "auto" }}>
-    <img src="/Images/cart.png" alt="cart-icon" className="cart-icon" />
-  </Link>
-</div>
-
     <div className="galery">
       <h1> Productos </h1>
 

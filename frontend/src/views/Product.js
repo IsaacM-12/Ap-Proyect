@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "../App.css";
 import "react-notifications/lib/notifications.css";
 
@@ -53,10 +54,30 @@ const Product = () => {
   };
 
   return (
+    <div>
+          <div className="menu">
+      <img src="/Images/logo.png" alt="logo" className="logo" />
+      <Link to="/home">
+        <div className="home-container">
+          <img src="/Images/home.png" alt="Inicio" className="home-icon" />
+          <h3 className="home-text">Inicio</h3>
+        </div>
+      </Link>
+      <Link to="/product/upload">
+        <h3>Subir Producto</h3>
+      </Link>
+      <Link to="/">
+        <h3>Cerrar Sesión</h3>
+      </Link>
+      <Link to="/cart"  >
+      <img src="/Images/cart.png" alt="cart-icon" className="cart-icon" />
+      </Link>
+    </div>
     <div className="space">
       <div className="ful-img">{Image}</div>
 
       <div className="information">{Information}</div>
+    </div>
     </div>
   );
 };

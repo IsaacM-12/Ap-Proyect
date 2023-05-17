@@ -36,9 +36,10 @@ public class ProductService {
         for (Object[] registro : respuesta) {
             String id = registro[0].toString();
             String name = registro[1].toString();
-            String description = registro[2].toString();
+            double price = Double.parseDouble(registro[2].toString());
             String url = registro[3].toString();
-            double price = Double.parseDouble(registro[4].toString());
+            String description = registro[4].toString();
+            
 
             Product product = new Product(id, description, url, name, price);
             productList.add(product);
