@@ -18,10 +18,10 @@ export default function Product() {
   console.log(id);
   useEffect(() => {
     axios.get(`http://localhost:8080/product/${id}`, config)
-      .then(res => {return res.data;})
+      .then(res => { return res.data; })
       .then(product => setProduct(product))
   }, []);
-  
+
   console.log(product);
   return (
     <section className="bg-light">
@@ -52,5 +52,5 @@ export default function Product() {
       </div>
     </section>
   );
-  
+
 }

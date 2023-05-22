@@ -3,37 +3,53 @@ import "../App.css";
 
 const Navbar = () => {
   return (
-
-<nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div className="container-fluid d-flex justify-content-center">
-    <div className="d-flex align-items-center">
-      <Link className="navbar-brand" to="/">
-        <img src="/Images/logo.png" alt="logo" className="logo-icon" />
-      </Link>
-      <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span className="navbar-toggler-icon"></span>
-      </button>
-    </div>
-    <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div className="navbar-nav nav-fill">
-        <NavLink className="nav-link ms-5 me-5 fs-5" activeclassname="active" to="/">
-          <i className="bi bi-house me-2"></i>Home
-        </NavLink>
-        <NavLink className="nav-link fs-5" activeclassname="active" to="/product/upload">
-          <i className="bi bi-upload me-2"></i>Product Upload
-          </NavLink>
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div className="container-fluid d-flex justify-content-center">
+        <div className="d-flex align-items-center">
+          <Link className="navbar-brand" to="/">
+            <img src="/Images/logo.png" alt="logo" className="logo-icon" />
+          </Link>
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span className="navbar-toggler-icon"></span>
+          </button>
+        </div>
+        <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div className="navbar-nav nav-fill">
+            <NavLink
+              className="nav-link ms-5 me-5 fs-5"
+              activeclassname="active"
+              to="/"
+            >
+              <i className="bi bi-house me-2"></i>Home
+            </NavLink>
+            <NavLink
+              className="nav-link fs-5"
+              activeclassname="active"
+              to="/product/upload"
+            >
+              <i className="bi bi-upload me-2"></i>Product Upload
+            </NavLink>
+          </div>
+          <div className="navbar-nav ms-auto">
+            <NavLink
+              className="btn btn-outline-light fs-5 me-2"
+              activeclassname="active"
+              to="/cart"
+            >
+              <i className="bi bi-cart3 me-2"></i> Cart
+            </NavLink>
+          </div>
+        </div>
       </div>
-      <div className="navbar-nav ms-auto">
-        <NavLink className="btn btn-outline-light fs-5 me-2" activeclassname="active" to="/cart">
-          <i className="bi bi-cart3 me-2"></i> Cart
-        </NavLink>
-      </div>
-    </div>
-  </div>
-</nav>
-
-
-
+    </nav>
   );
 };
 

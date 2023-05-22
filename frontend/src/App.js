@@ -1,5 +1,4 @@
 import Product from "./views/Product";
-import ProductCopy from "./views/Product copy";
 import Home from "./views/Home";
 import HomeAdmin from "./views/Home admin";
 import UploadProduct from "./views/UploadProduct";
@@ -30,9 +29,7 @@ function App() {
           <Route path="/home" element={<Home />} />
           <Route path="/admin" element={<LoginAdmin />} />
           <Route path="/admin/home" element={<HomeAdmin />} />
-          <Route path="/admin/home/:productID" element={<HomeAdmin />} />
           <Route path="product/:id" element={<Product />} />
-          <Route path="product-/:id" element={<ProductCopy />} />
           <Route path="product/upload" element={<UploadProduct />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/login" element={<Login />} />

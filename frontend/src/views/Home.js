@@ -8,7 +8,7 @@ import { formatPrice } from "../utils/priceFormatting.js";
 
 const Home = () => {
   const [Product, setProduct] = useState([]);
-  const [action, setAction] =  useState("Add to cart");
+  const [action, setAction] = useState("Add to cart");
 
   function handleActionClick() {
     console.log(action);
@@ -94,16 +94,16 @@ const Home = () => {
 
   return (
     <div>
-    <div className="mt-5">
-      <h2 className="mb-3">Productos</h2>
+      <div className="mt-5">
+        <h2 className="mb-3">Productos</h2>
 
-      <input className="input-search" type="text" onChange={(e) => setSearch(e.target.value)} />
-      <button className="ms-3 button-search" onClick={selectProductToBDFilter}>Buscar</button>
+        <input className="input-search" type="text" onChange={(e) => setSearch(e.target.value)} />
+        <button className="ms-3 button-search" onClick={selectProductToBDFilter}>Buscar</button>
 
-      <div className="img-gallery">{Product}</div>
+        <div className="img-gallery">{Product}</div>
 
-      <NotificationContainer />
-    </div>
+        <NotificationContainer />
+      </div>
     </div>
   );
 };
