@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import "react-notifications/lib/notifications.css";
 import { NotificationContainer } from "react-notifications";
 import { Link } from "react-router-dom";
+import { formatPrice } from "../utils/priceFormatting.js";
 
 const Home = () => {
   const [Product, setProduct] = useState([]);
@@ -46,8 +47,9 @@ const Home = () => {
               id={item.id}
               onClick={() => navigate("/product" + "/" + item.id)}
             />
-            <h3 className="price">₡ {item.price}</h3>
-            <h3 className="name">{item.name}</h3>
+
+            <h5 className="price mb-0">{formatPrice(item.price)}</h5>
+            <h5 className="name mb-0">{item.name}</h5>
             <button className="" onClick={handleActionClick}>{action}</button>
           </div>
         );
@@ -79,7 +81,7 @@ const Home = () => {
               id={item.id}
               onClick={() => navigate("/product" + "/" + item.id)}
             />
-            <h3>₡ {item.price}</h3>
+            <h3>{formatPrice(item.price)}</h3>
             <h3>{item.name}</h3>
           </div>
         );
@@ -92,27 +94,11 @@ const Home = () => {
 
   return (
     <div>
-<div className="menu">
-  <img src="/Images/logo.png" alt="logo" className="logo" />
-  <Link to="/home">
-    <div className="home-container">
-      <img src="/Images/home.png" alt="Inicio" className="home-icon" />
-      <h3 className="home-text">Inicio</h3>
-    </div>
-  </Link>
-  <Link to="/" >
-    <h3>Cerrar Sesión</h3>
-  </Link>
-  <Link to="/cart" style={{ marginLeft: "auto" }}>
-    <img src="/Images/cart.png" alt="cart-icon" className="cart-icon" />
-  </Link>
-</div>
+    <div className="mt-5">
+      <h2 className="mb-3">Productos</h2>
 
-    <div className="galery">
-      <h1> Productos </h1>
-
-      <input type="text" onChange={(e) => setSearch(e.target.value)} />
-      <button onClick={selectProductToBDFilter}>Buscar</button>
+      <input className="input-search" type="text" onChange={(e) => setSearch(e.target.value)} />
+      <button className="ms-3 button-search" onClick={selectProductToBDFilter}>Buscar</button>
 
       <div className="img-gallery">{Product}</div>
 

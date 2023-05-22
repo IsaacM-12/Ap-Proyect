@@ -32,34 +32,7 @@ function Cart() {
   const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
 
   return (
-    <div>
-        <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
-      />
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="d-flex align-items-center">
-    <a class="navbar-brand" href="#"><img src="/Images/logo.png" alt="logo" className="logo" /></a>
-    <a class="nav-link mr-auto" href="/home">Inicio</a>
-  </div>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" href="/">Cerrar Sesión</a>
-      </li>
-    </ul>
-  </div>
-</nav>
-
-
-
-
-      <br></br>
-      <br></br>
-      <br></br>
+    <div className="container mt-5 mb-5">
       <h2>Carrito de compras</h2>
       <Table striped bordered hover>
         <thead>
@@ -95,11 +68,7 @@ function Cart() {
       <div class="d-flex justify-content-end">
           <button class="btn btn-primary" type="button">Checkout</button>
         </div>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
+
 
     </div>
   );

@@ -94,70 +94,69 @@ const UploadProduct = () => {
   };
 
   return (
-    <div>
-          <div className="menu">
-      <img src="/Images/logo.png" alt="logo" className="logo" />
-      <Link to="/home">
-        <div className="home-container">
-          <img src="/Images/home.png" alt="Inicio" className="home-icon" />
-          <h3 className="home-text">Inicio</h3>
-        </div>
-      </Link>
-      <Link to="/product/upload">
-        <h3>Subir Producto</h3>
-      </Link>
-      <Link to="/">
-        <h3>Cerrar Sesión</h3>
-      </Link>
-    </div>
-    <div className="uploadCSS">
-      <h1> Subir Producto </h1>
+    <div className="card">
+      <div className="card-body">
+        <h1 className="card-title">Subir Producto</h1>
 
-      <div>
         <form onSubmit={CreateImage}>
-          <label>
-            Imagen:
-            <input
-              type="file"
-              accept=".jpg,.jpeg,.png"
-              onChange={(e) => setFile(e.target.files[0])}
-            />
-          </label>
-          <br></br>
-          <br></br>
-          <label>
-            Descripción:
-            <input
-              type="text"
-              onChange={(e) => setDescription(e.target.value)}
-            />
-          </label>
-          <br></br>
-          <br></br>
-          <label>
-            Nombre:
-            <input type="text" onChange={(e) => setNameImage(e.target.value)} />
-          </label>
-          <br></br>
-          <br></br>
-          <label>
-            Precio:
-            <input type="text" onChange={(e) => setPrice(e.target.value)} />
-          </label>
-          <br></br>
-          <br></br>
-          <label>
-            Cantidad:
-            <input type="text" onChange={(e) => setQuantity(e.target.value)} />
-          </label>
-          <br></br>
-          <br></br>
-          <button>Subir Producto</button>
+          <div className="mb-3">
+            <label className="form-label">
+              Imagen:
+              <input
+                className="form-control"
+                type="file"
+                accept=".jpg,.jpeg,.png"
+                onChange={(e) => setFile(e.target.files[0])}
+              />
+            </label>
+          </div>
+          <div className="mb-3">
+            <label className="form-label">
+              Descripción:
+              <input
+                className="form-control"
+                type="text"
+                onChange={(e) => setDescription(e.target.value)}
+              />
+            </label>
+          </div>
+          <div className="mb-3">
+            <label className="form-label">
+              Nombre:
+              <input
+                className="form-control"
+                type="text"
+                onChange={(e) => setNameImage(e.target.value)}
+              />
+            </label>
+          </div>
+          <div className="mb-3">
+            <label className="form-label">
+              Precio:
+              <input
+                className="form-control"
+                type="text"
+                onChange={(e) => setPrice(e.target.value)}
+              />
+            </label>
+          </div>
+          <div className="mb-3">
+            <label className="form-label">
+              Cantidad:
+              <input
+                className="form-control"
+                type="text"
+                onChange={(e) => setQuantity(e.target.value)}
+              />
+            </label>
+          </div>
+          <button className="btn btn-primary">Subir Producto</button>
         </form>
+
+        <NotificationContainer />
       </div>
-      <NotificationContainer />
     </div>
-    </div>
+
   );
 };
 

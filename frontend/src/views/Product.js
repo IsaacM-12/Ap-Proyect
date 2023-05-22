@@ -3,83 +3,54 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { formatPrice } from "../utils/priceFormatting";
 import "../App.css";
 import "react-notifications/lib/notifications.css";
 
-const Product = () => {
-  const { id } = useParams();
-  const [Information, setInformation] = useState([]);
-  const [Image, setImage] = useState([]);
-
-  // para cambiar la direccion del browser a la inicial
-  const navigate = useNavigate();
-  function redirectHome() {
-    navigate("/");
-  }
-
-  // Trae todos las Productos cada vez que refresque la pagina
-  useEffect(() => {
-    selectProductByID();
-  }, []);
-
-  // -------------------------------------------------------------
-  // Carga los datos de un Producto en especifico
-  // -------------------------------------------------------------
-  const selectProductByID = async () => {
-    const serviceUrl = `http://localhost:8080/product/` + id;
-    let config = {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    };
-    let response = await axios.get(serviceUrl, config);
-
-    let product = (
-      <div className="ful-img">
-        <img src={response.data.url} />
-      </div>
-    );
-    setImage(product);
-    setInformation(
-      <div>
-        <a>Nombre: {response.data.name}</a>
-        <br></br>
-        <br></br>
-        <a>Descripción: {response.data.description}</a>
-        <br></br>
-        <br></br>
-        <a>Precio: {response.data.price}</a>
-      </div>
-    );
+export default function Product() {
+  const [product, setProduct] = useState([])
+  let config = {
+    headers: {
+      "Content-Type": "application/json",
+    },
   };
-
+  const { id } = useParams();
+  console.log(id);
+  useEffect(() => {
+    axios.get(`http://localhost:8080/product/${id}`, config)
+      .then(res => {return res.data;})
+      .then(product => setProduct(product))
+  }, []);
+  
+  console.log(product);
   return (
-    <div>
-          <div className="menu">
-      <img src="/Images/logo.png" alt="logo" className="logo" />
-      <Link to="/home">
-        <div className="home-container">
-          <img src="/Images/home.png" alt="Inicio" className="home-icon" />
-          <h3 className="home-text">Inicio</h3>
+    <section className="bg-light">
+      <div className="container py-4">
+        <div className="row">
+          <div className="col-lg-6">
+            <img
+              alt={product.name}
+              className="w-100 rounded"
+              src={product.url}
+            />
+          </div>
+          <div className="col-lg-6">
+            <div className="py-4">
+              <h1 className="h2">
+                {product.name}
+              </h1>
+              <p className="lead">{product.description}</p>
+              <hr />
+              <div className="d-flex">
+                <span className="h4">
+                  Precio: {formatPrice(product.price)}
+                </span>
+              </div>
+            </div>
+          </div>
         </div>
-      </Link>
-      <Link to="/product/upload">
-        <h3>Subir Producto</h3>
-      </Link>
-      <Link to="/">
-        <h3>Cerrar Sesión</h3>
-      </Link>
-      <Link to="/cart"  >
-      <img src="/Images/cart.png" alt="cart-icon" className="cart-icon" />
-      </Link>
-    </div>
-    <div className="space">
-      <div className="ful-img">{Image}</div>
-
-      <div className="information">{Information}</div>
-    </div>
-    </div>
+      </div>
+    </section>
   );
-};
-
-export default Product;
+  
+}
