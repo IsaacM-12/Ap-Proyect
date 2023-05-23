@@ -3,7 +3,7 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { formatPrice } from "../utils/priceFormatting";
+import { formatPrice } from "../utilities/formatPrice.js";
 import "../App.css";
 import "react-notifications/lib/notifications.css";
 
