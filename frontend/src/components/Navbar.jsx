@@ -1,7 +1,9 @@
 import { Link, NavLink } from "react-router-dom";
 import "../App.css";
+import { useCart } from "../context/CartContext";
 
 const Navbar = () => {
+  const { openCart, cartQuantity} = useCart();
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container-fluid d-flex justify-content-center">
@@ -39,13 +41,15 @@ const Navbar = () => {
             </NavLink>
           </div>
           <div className="navbar-nav ms-auto">
-            <NavLink
+            <button onClick={openCart}
               className="btn btn-outline-light fs-5 me-2"
               activeclassname="active"
-              to="/cart"
             >
               <i className="bi bi-cart3 me-2"></i> Cart
-            </NavLink>
+              {cartQuantity > 0 && (
+                <span className="ms-2 badge bg-light text-dark">{cartQuantity}</span>
+              )}
+            </button>
           </div>
         </div>
       </div>

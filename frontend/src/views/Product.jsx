@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
-import { formatPrice } from "../utils/priceFormatting";
+import { useNavigate } from "react-router-dom";
+import { formatPrice } from "../utilities/formatPrice.js";
 import "../App.css";
 import "react-notifications/lib/notifications.css";
-import { useNavigate } from "react-router-dom";
 import {
   NotificationManager,
 } from "react-notifications";
