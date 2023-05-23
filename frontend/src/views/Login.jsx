@@ -1,5 +1,10 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import "react-notifications/lib/notifications.css";
+import {
+  NotificationManager,
+  NotificationContainer,
+} from "react-notifications";
 
 function login() {
   return (
@@ -78,6 +83,7 @@ function login() {
               <p class="mt-5 mb-1 text-muted">&copy; BlueHill</p>
             </form>
           </div>
+          <NotificationContainer />
         </main>
       </body>
     </html>
