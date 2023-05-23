@@ -4,12 +4,11 @@ import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
 import { useNavigate } from "react-router-dom";
 import "react-notifications/lib/notifications.css";
-import { Link } from "react-router-dom";
-
 import {
   NotificationManager,
   NotificationContainer,
 } from "react-notifications";
+
 
 const UploadProduct = () => {
   const [file, setFile] = useState(null);
@@ -21,8 +20,9 @@ const UploadProduct = () => {
 
   // para cambiar la direccion del browser a la inicial
   const navigate = useNavigate();
-  function redirectGalery() {
-    navigate("/admin/home");
+
+  function redirectHome() {
+    navigate("/");
   }
 
   function refresque() {
@@ -34,11 +34,12 @@ const UploadProduct = () => {
   // -------------------------------------------------------------
   function createProductBD(id, url) {
     var newProduct = {
+      id: id,
       description: description,
       url: url,
       name: nameimage,
       price: price,
-      quantity: quantity,
+      //quantity: quantity,
     };
 
     if (
@@ -65,7 +66,7 @@ const UploadProduct = () => {
         .then(() => {
           NotificationManager.success("Success", "Creado con exito");
         })
-        .then(redirectGalery())
+        .then(redirectHome())
 
         .catch((error) => {
           NotificationManager.error("Error", "Error");

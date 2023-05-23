@@ -1,10 +1,7 @@
 package com.Proyecto2.Lenguajes.controller;
 
-import com.Proyecto2.Lenguajes.dto.ProductRequest;
 import com.Proyecto2.Lenguajes.models.Product;
-import com.Proyecto2.Lenguajes.models.Inventory;
 import com.Proyecto2.Lenguajes.repository.ProductRepository;
-import com.Proyecto2.Lenguajes.repository.InventoryRepository;
 import com.Proyecto2.Lenguajes.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -18,9 +15,6 @@ public class ProductController {
 
     @Autowired
     private ProductRepository productRepository;
-
-    @Autowired
-    private InventoryRepository inventoryRepository;
 
     @Autowired
     private ProductService productService;
@@ -47,22 +41,22 @@ public class ProductController {
     // crear
     @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping(path = "/product")
-    public ProductRequest createProduct(@RequestBody ProductRequest req) {
-        Inventory inventory = new Inventory();
-        inventory.setQuantity(req.getQuantity());
+    public void createProduct(@RequestBody Product req) {
+        String id = req.getId();
+        Optional<Product> product = productRepository.findById(id);
 
-        Product product = new Product(req);
-        product.setId(null); // Esto asegura que Hibernate generará un nuevo ID único para el producto
-        product = productRepository.save(product); // Esto guardará el producto en la base de datos
-        inventory.setId(product.getId());
-        inventoryRepository.save(inventory);
-        return req;
+        if(product.isEmpty()){
+            productRepository.save(req);
+        }
+        else {
+            throw new RuntimeException("ID ocupado: " + id);
+        }
     }
 
     // borra por Id
     @CrossOrigin(origins = "http://localhost:3000")
     @DeleteMapping(path = "/product/{id}")
-    public void deletePrduct(@PathVariable String id){
+    public void deleteProduct(@PathVariable String id){
         Optional<Product> product = productRepository.findById(id);
         if(product.isEmpty()){
             throw  new RuntimeException("not found: " + id);

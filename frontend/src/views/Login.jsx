@@ -12,15 +12,7 @@ function login() {
       />
 
       <body>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-          <div class="d-flex align-items-center">
-            <a class="navbar-brand" href="#">
-              <img src="/Images/logo.png" alt="logo" className="logo" />
-            </a>
-            <a class="nav-link mr-auto" href="/home">
-              Inicio
-            </a>
-          </div>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
           <button
             class="navbar-toggler"
             type="button"
@@ -32,26 +24,17 @@ function login() {
           >
             <span class="navbar-toggler-icon"></span>
           </button>
-          <div
-            class="collapse navbar-collapse justify-content-end"
-            id="navbarNav"
-          >
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link" href="/">
-                  Cerrar Sesión
-                </a>
-              </li>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item active" />
+              <a class="nav-link" href="/">
+                Home
+              </a>
             </ul>
           </div>
         </nav>
         <main>
-          <br></br>
-          <br></br>
-          <h1 class="d-flex justify-content-center mt-5">Please sign in</h1>
-          <br></br>
-          <br></br>
-          <br></br>
+          <h1 class="d-flex justify-content-center mt-5">Please Login</h1>
           <div class="d-flex justify-content-center align-items-center">
             <form id="formLogin" class="text-center mt-0">
               <div class="form-group">
@@ -82,9 +65,9 @@ function login() {
                   required
                 />
               </div>
-              <Link to="/home">
+              <Link to="/">
                 <button class="btn btn-lg btn-primary btn-block" type="submit">
-                  Sign in
+                  Login
                 </button>
               </Link>
               <div class="mt-3">
@@ -96,15 +79,6 @@ function login() {
             </form>
           </div>
         </main>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
       </body>
     </html>
   );

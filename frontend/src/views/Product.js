@@ -1,13 +1,22 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
 import { formatPrice } from "../utils/priceFormatting";
 import "../App.css";
 import "react-notifications/lib/notifications.css";
+import { useNavigate } from "react-router-dom";
+import {
+  NotificationManager,
+} from "react-notifications";
 
 export default function Product() {
+
+  // para cambiar la direccion del browser a la inicial
+  const navigate = useNavigate();
+  function redirectHome() {
+    navigate("/");
+  }
+
   const [product, setProduct] = useState([])
   let config = {
     headers: {
@@ -15,14 +24,26 @@ export default function Product() {
     },
   };
   const { id } = useParams();
-  console.log(id);
+
   useEffect(() => {
     axios.get(`http://localhost:8080/product/${id}`, config)
       .then(res => { return res.data; })
       .then(product => setProduct(product))
   }, []);
 
-  console.log(product);
+  // -------------------------------------------------------------
+  // Borra un producto y lo redirigue a home
+  // -------------------------------------------------------------
+  const deleteImage = async () => {
+    const serviceUrl = `http://localhost:8080/product/` + id;
+    axios
+      .delete(serviceUrl)
+      .then(() => {
+        NotificationManager.success("Success", "Borrado con exito");
+      })
+      .then(redirectHome());
+  };
+
   return (
     <section className="bg-light">
       <div className="container py-4">
@@ -30,7 +51,7 @@ export default function Product() {
           <div className="col-lg-6">
             <img
               alt={product.name}
-              className="w-100 rounded"
+              className="imgSingle"
               src={product.url}
             />
           </div>
@@ -45,6 +66,11 @@ export default function Product() {
                 <span className="h4">
                   Precio: {formatPrice(product.price)}
                 </span>
+              </div>
+              <div>
+                <button className="buttonDelete" onClick={deleteImage}>
+                  Borrar Producto
+                </button>
               </div>
             </div>
           </div>

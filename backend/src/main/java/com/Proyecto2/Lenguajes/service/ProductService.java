@@ -32,13 +32,13 @@ public class ProductService {
 
         List<Object[]> respuesta = query.getResultList();
 
-        // En la respuesta de el proedimiento mapea y mete la respuesta en un List<Image>
+        // En la respuesta del proedimiento mapea y mete la respuesta en un List<>
         for (Object[] registro : respuesta) {
             String id = registro[0].toString();
-            String name = registro[1].toString();
-            double price = Double.parseDouble(registro[2].toString());
-            String url = registro[3].toString();
-            String description = registro[4].toString();
+            String description = registro[1].toString();
+            String name = registro[2].toString();
+            double price = Double.valueOf(registro[3].toString());
+            String url = registro[4].toString();
             
 
             Product product = new Product(id, description, url, name, price);

@@ -69,7 +69,7 @@ function login() {
               </div>
               <Link to="/admin/home">
                 <button class="btn btn-lg btn-primary btn-block" type="submit">
-                  Sign in
+                  Login
                 </button>
               </Link>
               <div class="mt-3">
@@ -81,9 +81,6 @@ function login() {
             </form>
           </div>
         </main>
-        <br></br>
-        <br></br>
-        <br></br>
       </body>
     </html>
   );

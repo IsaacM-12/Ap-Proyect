@@ -110,6 +110,13 @@ input {
   margin-bottom: 5vh;
 }
 
+
+.imgSingle{
+  max-height: 75vh;
+  max-width: 70vh;
+}
+
+
 @media (max-width: 992px) {
   .img-gallery {
     grid-template-columns: repeat(2, 1fr);
