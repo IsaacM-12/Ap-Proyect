@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @RestController
@@ -63,6 +64,47 @@ public class ProductController {
         }
         productRepository.deleteById(id);
     }
+
+    @CrossOrigin(origins = "http://localhost:3000")
+    @PutMapping(path = "/product/{id}/description")
+    public Product updateDescription(@PathVariable String id, @RequestBody Map<String, String> request) {
+        String description = request.get("description");
+        Optional<Product> optionalProduct = productRepository.findById(id);
+        if (optionalProduct.isEmpty()) {
+            throw new RuntimeException("not found: " + id);
+        }
+        Product product = optionalProduct.get();
+        product.setDescription(description);
+        return productRepository.save(product);
+    }
+
+    @CrossOrigin(origins = "http://localhost:3000")
+    @PutMapping(path = "/product/{id}/name")
+    public Product updateName(@PathVariable String id, @RequestBody Map<String, String> request) {
+        String name = request.get("name");
+        Optional<Product> optionalProduct = productRepository.findById(id);
+        if (optionalProduct.isEmpty()) {
+            throw new RuntimeException("not found: " + id);
+        }
+        Product product = optionalProduct.get();
+        product.setName(name);
+        return productRepository.save(product);
+    }
+
+    @CrossOrigin(origins = "http://localhost:3000")
+    @PutMapping(path = "/product/{id}/price")
+    public Product updatePrice(@PathVariable String id, @RequestBody Map<String, Object> request) {
+        Double price = Double.valueOf(request.get("price").toString());
+        Optional<Product> optionalProduct = productRepository.findById(id);
+        if (optionalProduct.isEmpty()) {
+            throw new RuntimeException("not found: " + id);
+        }
+        Product product = optionalProduct.get();
+        product.setPrice(price);
+        return productRepository.save(product);
+    }
+
+
 
     // seleccionar todas las imagenes por key
     @CrossOrigin(origins = "http://localhost:3000")
