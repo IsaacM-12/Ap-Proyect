@@ -1,17 +1,17 @@
 import { Outlet } from "react-router-dom";
 
-import Navbar from "./Navbar";
+import NavbarAdmin from "./NavbarAdmin";
 import PiePagina from "./PiePagina";
 
-function Layout({isLoggedIn, onLogout}) {
+function LayoutAdmin({isLoggedIn, onLogout}) {
 
   return (
     <div className="principal">
-      <Navbar isLoggedIn={isLoggedIn} onLogout={onLogout}/>
+      <NavbarAdmin isLoggedIn={isLoggedIn} onLogout={onLogout}/>
       <Outlet/>
       <PiePagina/>
     </div>
   );
 };
 
-export default Layout;
+export default LayoutAdmin;

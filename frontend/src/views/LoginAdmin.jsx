@@ -1,23 +1,14 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-function login() {
+function LoginAdmin() {
   return (
-    <div>
-      <h1 class="d-flex justify-content-center mt-5">Please sign in Admin</h1>
+    <div style={{minHeight: '75vh'}}>
+      <h1 class="d-flex justify-content-center mt-5"
+      >Please sign in Admin</h1>
       <div class="d-flex justify-content-center align-items-center">
-        <form id="formLogin" class="text-center mt-0">
-          <div class="form-group">
-            <input
-              type="email"
-              id="inputEmail"
-              class="form-control"
-              placeholder="Email address"
-              required
-              autofocus
-            />
-          </div>
-          <div class="form-group mb-4">
+        <div id="formLogin" class="text-center mt-0">
+          <div class="form-group mb-4 mt-5">
             <input
               type="username"
               id="inputUsername"
@@ -46,10 +37,10 @@ function login() {
             </p>
           </div>
           <p class="mt-5 mb-1 text-muted">&copy; BlueHill</p>
-        </form>
+        </div>
       </div>
     </div>
   );
 }
 
-export default login;
+export default LoginAdmin;

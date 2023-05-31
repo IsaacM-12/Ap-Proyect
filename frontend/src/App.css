@@ -13,12 +13,12 @@ body {
 }
 
 .piePagina {
-  background-color: #1e1c1c;
+  background-color: rgb(33,37,41);
   min-height: 10vh;
   padding: 6vh;
 }
 .piePagina a {
-  color: #085fb7;
+  color: #c5c3c3;
   margin-right: 1em;
   margin-left: 1em;
   text-align: center;

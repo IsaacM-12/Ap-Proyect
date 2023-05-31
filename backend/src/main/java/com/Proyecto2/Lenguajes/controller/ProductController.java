@@ -2,6 +2,7 @@ package com.Proyecto2.Lenguajes.controller;
 
 import com.Proyecto2.Lenguajes.models.Product;
 import com.Proyecto2.Lenguajes.repository.ProductRepository;
+import com.Proyecto2.Lenguajes.repository.InventoryRepository;
 import com.Proyecto2.Lenguajes.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -15,6 +16,9 @@ public class ProductController {
 
     @Autowired
     private ProductRepository productRepository;
+
+    @Autowired
+    private InventoryRepository inventoryRepository;
 
     @Autowired
     private ProductService productService;
@@ -53,6 +57,19 @@ public class ProductController {
         }
     }
 
+    // actualizar
+    @CrossOrigin(origins = "http://localhost:3000")
+    @PutMapping(path = "/product")
+    public void updateProduct(@RequestBody Product req) {
+        String id = req.getId();
+        Optional<Product> product = productRepository.findById(id);
+
+        if(product.isEmpty()){
+            throw new RuntimeException("not found: " + id);
+        }
+        productRepository.save(req);
+    }
+
     // borra por Id
     @CrossOrigin(origins = "http://localhost:3000")
     @DeleteMapping(path = "/product/{id}")
@@ -61,6 +78,7 @@ public class ProductController {
         if(product.isEmpty()){
             throw  new RuntimeException("not found: " + id);
         }
+        inventoryRepository.deleteById(id);
         productRepository.deleteById(id);
     }
 

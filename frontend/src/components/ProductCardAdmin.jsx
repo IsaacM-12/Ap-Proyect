@@ -3,7 +3,7 @@ import { formatPrice } from "../utilities/formatPrice.js";
 import { useState } from "react";
 import { useCart } from "../context/CartContext.jsx";
 
-export function ProductCard({ id, name, price, url, description}) {
+export function ProductCardAdmin({ id, name, price, url, description}) {
     const { 
         getItemQuantity, 
         increaseCartQuantity, 
@@ -12,12 +12,11 @@ export function ProductCard({ id, name, price, url, description}) {
     } = useCart();
     const quantity = getItemQuantity(id);
     const navigate = useNavigate();
-    const [action, setAction] = useState("Add to cart");
+    const [action, setAction] = useState("Edit Product");
 
 
     function handleActionClick() {
-        setAction("Added to cart");
-        increaseCartQuantity(id);
+        navigate("/admin/product/edit/" + id)
     }
 
     return (
@@ -31,9 +30,7 @@ export function ProductCard({ id, name, price, url, description}) {
             <h5 className="price mb-0">{formatPrice(price)}</h5>
             <h5 className="name mb-0">{name}</h5>
             <div className="mt-auto">
-                {quantity === 0 | localStorage.getItem("userInfo") === null ? (
-                    <button className="btn btn-outline-primary" onClick={handleActionClick}>{action}</button>
-                ) : <button className="btn btn-outline-secondary disabled" onClick={handleActionClick}>Added to cart</button>}
+                    <button className="btn btn-outline-danger" onClick={handleActionClick}>{action}</button>
             </div>
             {/* <button className="" onClick={handleActionClick}>{action}</button> */}
         </div>

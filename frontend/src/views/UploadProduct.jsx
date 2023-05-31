@@ -22,7 +22,7 @@ const UploadProduct = () => {
   const navigate = useNavigate();
 
   function redirectHome() {
-    navigate("/");
+    navigate("/admin/home");
   }
 
   function refresque() {
@@ -114,7 +114,7 @@ const UploadProduct = () => {
           <div className="mb-3">
             <label className="form-label">
               Descripción:
-              <input
+              <textarea
                 className="form-control"
                 type="text"
                 onChange={(e) => setDescription(e.target.value)}

@@ -35,10 +35,10 @@ public class ProductService {
         // En la respuesta del proedimiento mapea y mete la respuesta en un List<>
         for (Object[] registro : respuesta) {
             String id = registro[0].toString();
-            String description = registro[1].toString();
-            String name = registro[2].toString();
-            double price = Double.valueOf(registro[3].toString());
-            String url = registro[4].toString();
+            String description = registro[4].toString();
+            String name = registro[1].toString();
+            double price = Double.valueOf(registro[2].toString());
+            String url = registro[3].toString();
             
 
             Product product = new Product(id, description, url, name, price);

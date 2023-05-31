@@ -7,12 +7,12 @@ import {
 } from "react-notifications";
 import { useNavigate } from "react-router-dom";
 
-function Register() {
+function Register({ onLogin }) {
   // para cambiar la direccion del browser a la inicial
   const navigate = useNavigate();
 
   function redirectLogin() {
-    navigate("/login");
+    navigate("/");
   }
 
   const [name, setName] = useState("");
@@ -55,18 +55,23 @@ function Register() {
         .then(() => {
           NotificationManager.success("Success", "Creado con exito");
         })
-        .then(redirectLogin())
+        .then(() => {
+          handleLogin();})
 
         .catch((error) => {
+          console.log(error);
           NotificationManager.error("Error", "Error", 5000, () => {
             alert("callback");
           });
         });
     }
   }
-
+  function handleLogin() {
+    onLogin();
+    redirectLogin();
+  }
   return (
-        <div>
+        <div style={{minHeight: '75vh'}}>
           <h1 class="d-flex justify-content-center mt-5">Please Sign up</h1>
           <div class="d-flex justify-content-center align-items-center">
             <div id="formLogin" class="text-center mt-0">

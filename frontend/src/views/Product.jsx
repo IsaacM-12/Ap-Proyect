@@ -45,8 +45,13 @@ export default function Product() {
   };
 
   return (
-    <section className="bg-light">
-      <div className="container py-4">
+    <section className="bg-light" style={{minHeight: '80vh'}}>
+      <br/>
+      <br />
+      <br />
+      <br />
+      <br />
+      <div className="container py-4 mt-5">
         <div className="row">
           <div className="col-lg-6">
             <img
@@ -61,16 +66,14 @@ export default function Product() {
                 {product.name}
               </h1>
               <p className="lead">{product.description}</p>
-              <hr />
+              <hr className="ms-5"/>
               <div className="d-flex">
-                <span className="h4">
+                <span className="h4 ms-5">
                   Precio: {formatPrice(product.price)}
                 </span>
               </div>
               <div>
-                <button className="buttonDelete" onClick={deleteImage}>
-                  Borrar Producto
-                </button>
+
               </div>
             </div>
           </div>

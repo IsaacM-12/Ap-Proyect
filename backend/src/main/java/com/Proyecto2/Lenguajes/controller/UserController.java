@@ -1,5 +1,6 @@
 package com.Proyecto2.Lenguajes.controller;
 
+import com.Proyecto2.Lenguajes.dto.LoginDTO;
 import com.Proyecto2.Lenguajes.models.User;
 import com.Proyecto2.Lenguajes.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,22 @@ public class UserController {
     @GetMapping(path = "/user")
     public List<User> getUsers() {
         return userRepository.findAll();
+    }
+
+    // Login
+    @CrossOrigin(origins = "http://localhost:3000")
+    @PostMapping(path = "/user/login")
+    public User login(@RequestBody LoginDTO request) {
+        String email = request.getEmail();
+        String password = request.getPassword();
+ 
+        Optional<User> user = userRepository.findOneByEmailAndPassword(email, password);
+ 
+        if (user.isEmpty()) {
+            throw new RuntimeException("Credenciales inválidas");
+        }
+ 
+        return user.get();
     }
 
     // seleccionar por id
